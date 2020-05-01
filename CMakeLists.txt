@@ -13,8 +13,8 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Widgets REQUIRED)
 
 #here goes all the source files except main.cpp
-set(SOURCE_FILES )
-set(HEADER_FILES )
+set(SOURCE_FILES Event.cpp  MouseButtonDown.cpp MouseButtonUp.cpp Click.cpp Pause.cpp)
+set(HEADER_FILES Event.h MouseButtonDown.h MouseButtonUp.h Click.h Pause.h)
 
 
 #creates a library out of the remaining files
