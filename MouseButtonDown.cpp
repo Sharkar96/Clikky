@@ -9,5 +9,9 @@ MouseButtonDown::~MouseButtonDown() {
 }
 
 void MouseButtonDown::run() {
-    std::cout<<"Mouse Button Down"<<std::endl;
+    std::cout <<buttonSide<< "Mouse Button Down" << std::endl;
+}
+
+MouseButtonDown::MouseButtonDown(MouseButton buttonSide, unsigned int d) : buttonSide(buttonSide), Event{d} {
+
 }

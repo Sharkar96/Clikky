@@ -7,12 +7,15 @@
 
 #include "Event.h"
 
+
 class MouseButtonUp : public Event {
 public:
+    explicit MouseButtonUp(MouseButton buttonSide,unsigned int d=0);
+
     ~MouseButtonUp() override;
     void run() override;
 private:
-    bool buttonSide;
+    MouseButton buttonSide;
 };
 
 

@@ -4,16 +4,12 @@
 
 #include "Pause.h"
 
-Pause::Pause(unsigned int i,unsigned int d):Event{i,d} {
+Pause::Pause(unsigned int d) : Event{CONVERSION_S_to_mS*d} {}
 
-}
-
-Pause::~Pause() {
-
-}
+Pause::~Pause() {}
 
 void Pause::run() {
-    std::cout<<"Pausing for:" <<duration<<"seconds"<<std::endl;
+    std::cout << "Pausing for:" << duration << "seconds" << std::endl;
 }
 
 

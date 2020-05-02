@@ -10,7 +10,8 @@
 
 class Pause : public Event {
 public:
-    explicit Pause(unsigned int i,unsigned int d);
+    explicit Pause(unsigned int d=0);
+
     ~Pause() override;
     void run() override;
 

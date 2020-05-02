@@ -4,17 +4,23 @@
 
 #include "Click.h"
 
-Click::Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown) : buttonUp(buttonUp),
-                                                                                 buttonDown(buttonDown) {
-
-}
+Click::Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown, const Pause& p) : buttonUp{buttonUp},
+                                                                                                 buttonDown{buttonDown},
+                                                                                                 pause{p} {}
 
 Click::~Click() {
 
 }
 
 void Click::run() {
-    buttonDown.run();
-    buttonUp.run();
+    for(int i = 0; i < iterCount; i++){
+        buttonDown.run();
+        pause.run();
+        buttonUp.run();
+    }
 }
+
+Click::Click(MouseButton buttonSide, unsigned int iterCount) : buttonUp{buttonSide}, buttonDown{buttonSide}, pause{},
+                                                               Event(0, iterCount) {}
+
 

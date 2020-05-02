@@ -10,9 +10,11 @@
 #include "MouseButtonDown.h"
 #include "Pause.h"
 
-class Click: public Event {
+
+class Click : public Event {
 public:
-    Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown);
+    explicit Click(MouseButton buttonSide, unsigned int iterCount=1);
+    Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown, const Pause& p);
     ~Click() override;
 
     void run() override;

@@ -7,9 +7,13 @@
 
 #include <iostream>
 
+const int CONVERSION_S_to_mS{1000};
+
+enum MouseButton{left=1,right=0};
+
 class Event {
 public:
-    explicit Event(unsigned int i=1, unsigned int d=0):iterCount{i},duration{d}{};
+    explicit Event(unsigned int d=0, unsigned int i=1):duration{d},iterCount{i}{};
     virtual ~Event()=default;
 
     virtual void run()=0;
