@@ -1,19 +1,13 @@
-//
-// Created by Andrea Righetti on 02/05/2020.
-//
-
-#ifndef CLIKKY_UI_MAINWINDOW_H
-#define CLIKKY_UI_MAINWINDOW_H
 /********************************************************************************
-** Form generated from reading UI file 'miainWindowEypEdz.ui'
+** Form generated from reading UI file 'miainWindowMoefOK.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MIAINWINDOWEYPEDZ_H
-#define MIAINWINDOWEYPEDZ_H
+#ifndef MIAINWINDOWMOEFOK_H
+#define MIAINWINDOWMOEFOK_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -39,7 +33,7 @@ public:
     QTableWidget *tableWidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
+    QPushButton *clickButton;
     QPushButton *removeEventButton;
     QWidget *widget;
     QPushButton *addEventButton;
@@ -70,7 +64,7 @@ public:
         if (tableWidget->rowCount() < 1)
             tableWidget->setRowCount(1);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(40, 370, 701, 31));
+        tableWidget->setGeometry(QRect(40, 370, 801, 31));
         tableWidget->setFrameShadow(QFrame::Plain);
         tableWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setRowCount(1);
@@ -83,10 +77,11 @@ public:
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(gridLayoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        clickButton = new QPushButton(gridLayoutWidget);
+        clickButton->setObjectName(QString::fromUtf8("clickButton"));
+        clickButton->setCheckable(true);
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(clickButton, 0, 0, 1, 1);
 
         removeEventButton = new QPushButton(centralwidget);
         removeEventButton->setObjectName(QString::fromUtf8("removeEventButton"));
@@ -97,7 +92,7 @@ public:
         widget->setAutoFillBackground(true);
         addEventButton = new QPushButton(widget);
         addEventButton->setObjectName(QString::fromUtf8("addEventButton"));
-        addEventButton->setGeometry(QRect(160, 230, 111, 51));
+        addEventButton->setGeometry(QRect(220, 230, 111, 51));
         sideButtonWidget = new QWidget(widget);
         sideButtonWidget->setObjectName(QString::fromUtf8("sideButtonWidget"));
         sideButtonWidget->setGeometry(QRect(0, 10, 74, 101));
@@ -120,7 +115,7 @@ public:
 
         iterWidget = new QWidget(widget);
         iterWidget->setObjectName(QString::fromUtf8("iterWidget"));
-        iterWidget->setGeometry(QRect(80, 10, 81, 48));
+        iterWidget->setGeometry(QRect(80, 10, 81, 71));
         iterLayout = new QVBoxLayout(iterWidget);
         iterLayout->setObjectName(QString::fromUtf8("iterLayout"));
         iterCheckBox = new QCheckBox(iterWidget);
@@ -147,7 +142,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         runButton->setText(QCoreApplication::translate("MainWindow", "Run", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Click", nullptr));
+        clickButton->setText(QCoreApplication::translate("MainWindow", "Click", nullptr));
         removeEventButton->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         addEventButton->setText(QCoreApplication::translate("MainWindow", "Add event", nullptr));
         mouseSideLabel->setText(QCoreApplication::translate("MainWindow", "Side", nullptr));
@@ -158,13 +153,7 @@ public:
 
 };
 
-namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
-} // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // MIAINWINDOWEYPEDZ_H
-
-
-#endif //CLIKKY_UI_MAINWINDOW_H
+#endif // MIAINWINDOWMOEFOK_H

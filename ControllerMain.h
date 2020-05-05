@@ -13,6 +13,7 @@ public:
     explicit ControllerMain(ModelMain* m) : model{m} {};
 
 private:
+
     ModelMain*model;
 };
 

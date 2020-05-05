@@ -13,7 +13,7 @@
 #include "ControllerMain.h"
 
 class ViewMain : public QMainWindow, public Observer {
-    Q_OBJECT
+Q_OBJECT
 public:
     ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent = 0);
 
@@ -21,7 +21,7 @@ public:
     void update() override;
 
 private slots:
-
+    void onClickButton(bool checked);
 private:
     ControllerMain* controller;
     ModelMain* model;
