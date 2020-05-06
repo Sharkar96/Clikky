@@ -14,7 +14,7 @@ public:
 
 private:
 
-    ModelMain*model;
+    ModelMain* model;
 };
 
 

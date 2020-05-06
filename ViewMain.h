@@ -20,8 +20,18 @@ public:
     ~ViewMain() override;
     void update() override;
 
+    void hideWidgets();
 private slots:
     void onClickButton(bool checked);
+    void onDragNDropButton(bool checked);
+    void onDoubleClickButton(bool checked);
+    void onPauseButton(bool checked);
+    void onAllOverAgainButton(bool checked);
+    void onMouseLongPressButton(bool checked);
+    void onMoveMouse(bool checked);
+    void onKeyPressButton(bool checked);
+    void onAddEventButton();
+
 private:
     ControllerMain* controller;
     ModelMain* model;
