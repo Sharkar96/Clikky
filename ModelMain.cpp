@@ -13,5 +13,13 @@ void ModelMain::notify() {
 }
 
 void ModelMain::removeObserver(Observer* ob) {
-   observers.remove(ob);
+    observers.remove(ob);
+}
+
+void ModelMain::addEvent(Event* e) {
+    events.emplace_back(e);
+}
+
+void ModelMain::removeEvent(int pos) {
+    events.erase(events.begin() + pos);
 }

@@ -7,18 +7,25 @@
 
 
 #include <list>
+#include <vector>
 #include "Observer.h"
 #include "Subject.h"
+#include "Event.h"
 #include <memory>
-class ModelMain:public Subject {
+
+class ModelMain : public Subject {
 public:
     virtual ~ModelMain() {};
 
     void addObserver(Observer* ob) override;
     void removeObserver(Observer* ob) override;
     void notify() override;
+
+    void addEvent(Event*e);
+    void removeEvent(int pos);
 private:
     std::list<Observer*> observers;
+    std::vector<std::unique_ptr<Event>> events;
 };
 
 
