@@ -11,9 +11,10 @@
 class Pause : public Event {
 public:
     explicit Pause(unsigned int d=0);
-
     ~Pause() override;
+
     void run() override;
+    const std::string& getTableMode() override;
 
 };
 

@@ -10,9 +10,11 @@
 
 class MouseButtonDown : public Event {
 public:
-    explicit MouseButtonDown(MouseButton buttonSide,unsigned int d=0);
+    explicit MouseButtonDown(MouseButton buttonSide, unsigned int d = 0);
     ~MouseButtonDown() override;
+
     void run() override;
+    const std::string& getTableMode() override;
 private:
     MouseButton buttonSide; //0=right,1=left
 };

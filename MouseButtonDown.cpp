@@ -12,6 +12,10 @@ void MouseButtonDown::run() {
     std::cout <<buttonSide<< "Mouse Button Down" << std::endl;
 }
 
-MouseButtonDown::MouseButtonDown(MouseButton buttonSide, unsigned int d) : buttonSide(buttonSide), Event{d} {
+MouseButtonDown::MouseButtonDown(MouseButton buttonSide, unsigned int d) : buttonSide(buttonSide), Event{"Mouse Button down",d} {
 
+}
+
+const std::string& MouseButtonDown::getTableMode() {
+    return eventName+" x"+std::to_string(duration)+"s"+" >";
 }

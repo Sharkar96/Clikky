@@ -21,6 +21,8 @@ public:
     void update() override;
 
     void hideWidgets();
+    void addToTable(const std::string& event);
+    void clearTable();
 private slots:
     void onClickButton(bool checked);
     void onDragNDropButton(bool checked);
@@ -33,6 +35,7 @@ private slots:
     void onAddEventButton();
 
 private:
+    int lastColumnOccupied{1};
     ControllerMain* controller;
     ModelMain* model;
     Ui_MainWindow* ui;

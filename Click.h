@@ -14,11 +14,12 @@
 class Click : public Event {
 public:
     explicit Click(MouseButton buttonSide, unsigned int iterCount=1);
-    Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown, const Pause& p);
     ~Click() override;
 
     void run() override;
+    const std::string& getTableMode() override;
 private:
+
     MouseButtonUp buttonUp;
     MouseButtonDown buttonDown;
     Pause pause;

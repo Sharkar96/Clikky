@@ -4,10 +4,6 @@
 
 #include "Click.h"
 
-Click::Click(const MouseButtonUp& buttonUp, const MouseButtonDown& buttonDown, const Pause& p) : buttonUp{buttonUp},
-                                                                                                 buttonDown{buttonDown},
-                                                                                                 pause{p} {}
-
 Click::~Click() {
 
 }
@@ -21,6 +17,10 @@ void Click::run() {
 }
 
 Click::Click(MouseButton buttonSide, unsigned int iterCount) : buttonUp{buttonSide}, buttonDown{buttonSide}, pause{},
-                                                               Event(0, iterCount) {}
+                                                               Event("Click",0, iterCount) {}
+
+const std::string& Click::getTableMode() {
+    return eventName+" x"+std::to_string(iterCount)+" >";
+}
 
 

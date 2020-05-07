@@ -25,6 +25,9 @@ ViewMain::~ViewMain() {
 }
 
 void ViewMain::update() {
+    clearTable();
+    for(auto& i : model->getEvents())
+        addToTable(i->getTableMode());
 
 }
 
@@ -87,4 +90,14 @@ void ViewMain::onMoveMouse(bool checked) {
 
 void ViewMain::onKeyPressButton(bool checked) {
 
-};
+}
+
+void ViewMain::clearTable() {
+    ui->tableWidget->clear();
+    lastColumnOccupied=1;
+}
+
+void ViewMain::addToTable(const std::string& event) {
+    ui->tableWidget->setItem(1,lastColumnOccupied,new QTableWidgetItem(QString::fromStdString(event)));
+    lastColumnOccupied++;
+}

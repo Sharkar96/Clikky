@@ -9,7 +9,8 @@ void ModelMain::addObserver(Observer* ob) {
 }
 
 void ModelMain::notify() {
-
+    for(auto i:observers)
+        i->update();
 }
 
 void ModelMain::removeObserver(Observer* ob) {
@@ -18,8 +19,14 @@ void ModelMain::removeObserver(Observer* ob) {
 
 void ModelMain::addEvent(Event* e) {
     events.emplace_back(e);
+    notify();
 }
 
 void ModelMain::removeEvent(int pos) {
     events.erase(events.begin() + pos);
+    notify();
+}
+
+const std::vector<std::unique_ptr<Event>>& ModelMain::getEvents() {
+    return events;
 }

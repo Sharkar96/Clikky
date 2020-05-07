@@ -5,7 +5,7 @@
 #include "MouseButtonUp.h"
 
 void MouseButtonUp::run() {
-    std::cout <<buttonSide<< "Mouse Button Up" << std::endl;
+    std::cout << buttonSide << "Mouse Button Up" << std::endl;
 
 }
 
@@ -13,7 +13,12 @@ MouseButtonUp::~MouseButtonUp() {
 
 }
 
-MouseButtonUp::MouseButtonUp(MouseButton buttonSide, unsigned int d) : buttonSide{buttonSide}, Event{d} {
+MouseButtonUp::MouseButtonUp(MouseButton buttonSide, unsigned int d) : buttonSide{buttonSide},
+                                                                       Event{"Mouse Button up", d} {
 
+}
+
+const std::string& MouseButtonUp::getTableMode() {
+    return eventName + " x" + std::to_string(duration) + "s" + " >";
 }
 

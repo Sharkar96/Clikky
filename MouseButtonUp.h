@@ -14,6 +14,8 @@ public:
 
     ~MouseButtonUp() override;
     void run() override;
+    const std::string& getTableMode() override;
+
 private:
     MouseButton buttonSide;
 };

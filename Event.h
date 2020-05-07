@@ -13,12 +13,14 @@ enum MouseButton{left=1,right=0};
 
 class Event {
 public:
-    explicit Event(unsigned int d=0, unsigned int i=1):duration{d},iterCount{i}{};
+    explicit Event(const std::string &n,unsigned int d=0, unsigned int i=1):duration{d},iterCount{i}{};
     virtual ~Event()=default;
 
-    virtual void run()=0;
 
+    virtual void run()=0;
+    virtual const std::string& getTableMode()=0;
 protected:
+    std::string eventName;
     unsigned int iterCount;
     unsigned int duration;
 };
