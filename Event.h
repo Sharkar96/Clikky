@@ -9,7 +9,7 @@
 
 const int CONVERSION_S_to_mS{1000};
 
-enum MouseButton{left=1,right=0};
+enum MouseButton{left=true,right=false};
 
 class Event {
 public:
@@ -18,7 +18,7 @@ public:
 
 
     virtual void run()=0;
-    virtual const std::string& getTableMode()=0;
+    virtual std::string&& getTableMode()=0;
 protected:
     std::string eventName;
     unsigned int iterCount;

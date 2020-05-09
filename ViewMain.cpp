@@ -8,7 +8,7 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : controlle
                                                                        ui{new Ui_MainWindow()} {
     model->addObserver(this);
     ui->setupUi(this);
-    ui->clickButton->setCheckable(true);
+    setIds();
     connect(ui->clickButton, &QAbstractButton::toggled, this, &ViewMain::onClickButton);
     connect(ui->doubleClickButton, &QAbstractButton::toggled, this, &ViewMain::onDoubleClickButton);
     connect(ui->pauseButton, &QAbstractButton::toggled, this, &ViewMain::onPauseButton);
@@ -26,9 +26,9 @@ ViewMain::~ViewMain() {
 
 void ViewMain::update() {
     clearTable();
-    for(auto& i : model->getEvents())
+    for(auto& i : model->getEvents()){
         addToTable(i->getTableMode());
-
+    }
 }
 
 void ViewMain::onClickButton(bool checked) {
@@ -47,7 +47,7 @@ void ViewMain::hideWidgets() {
 }
 
 void ViewMain::onAddEventButton() {
-
+    controller->createEvent(ui->buttonGroup->checkedId(), getSide(), getRepeatCheck(), getIterNumber(), getDuration());
 }
 
 void ViewMain::onDoubleClickButton(bool checked) {
@@ -94,10 +94,43 @@ void ViewMain::onKeyPressButton(bool checked) {
 
 void ViewMain::clearTable() {
     ui->tableWidget->clear();
-    lastColumnOccupied=1;
+    lastColumnOccupied = FIRST_CELL;
 }
-
-void ViewMain::addToTable(const std::string& event) {
-    ui->tableWidget->setItem(1,lastColumnOccupied,new QTableWidgetItem(QString::fromStdString(event)));
+//change all the rvalues back to const string references
+void ViewMain::addToTable( std::string&& event) {
+    QTableWidgetItem*item=new QTableWidgetItem(QString::fromStdString(event));
+    item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+    ui->tableWidget->setItem(0, lastColumnOccupied,item);
     lastColumnOccupied++;
 }
+
+void ViewMain::setIds() {
+    ui->buttonGroup->setId(ui->clickButton, click);
+    ui->buttonGroup->setId(ui->doubleClickButton, doubleClick);
+    ui->buttonGroup->setId(ui->keyPressButton, keyPress);
+    ui->buttonGroup->setId(ui->moveMouseButton, moveMouse);
+    ui->buttonGroup->setId(ui->mouseLongPressButton, mouseLongPress);
+    ui->buttonGroup->setId(ui->dragNDropButton, dragNDrop);
+    ui->buttonGroup->setId(ui->pauseButton, pause);
+    ui->buttonGroup->setId(ui->allOverAgainButton, allOverAgain);
+}
+
+bool ViewMain::getSide() {
+    if(ui->leftSideButton->isChecked())
+        return true;
+    else if(ui->rightSideButton->isChecked())
+        return false;
+}
+
+bool ViewMain::getRepeatCheck() {
+    return ui->iterCheckBox->isChecked();
+}
+
+int ViewMain::getIterNumber() {
+    return ui->iterLineEdit->text().toInt();
+}
+
+int ViewMain::getDuration() {
+    return ui->durationLineEdit->text().toInt();
+}
+

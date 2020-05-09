@@ -18,7 +18,7 @@ MouseButtonUp::MouseButtonUp(MouseButton buttonSide, unsigned int d) : buttonSid
 
 }
 
-const std::string& MouseButtonUp::getTableMode() {
-    return eventName + " x" + std::to_string(duration) + "s" + " >";
+std::string&& MouseButtonUp::getTableMode() {
+    return std::move(eventName + " x" + std::to_string(duration) + "s" + " >");
 }
 

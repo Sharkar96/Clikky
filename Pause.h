@@ -14,7 +14,7 @@ public:
     ~Pause() override;
 
     void run() override;
-    const std::string& getTableMode() override;
+     std::string&& getTableMode() override;
 
 };
 

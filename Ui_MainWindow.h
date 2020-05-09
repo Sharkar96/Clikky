@@ -1,16 +1,17 @@
 /********************************************************************************
-** Form generated from reading UI file 'miainWindowceyYUN.ui'
+** Form generated from reading UI file 'miainWindowCtbOcw.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MIAINWINDOWCEYYUN_H
-#define MIAINWINDOWCEYYUN_H
+#ifndef MIAINWINDOWCTBOCW_H
+#define MIAINWINDOWCTBOCW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
@@ -34,13 +35,13 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QPushButton *keyPressButton;
-    QPushButton *dragNDropButton;
-    QPushButton *doubleClickButton;
     QPushButton *clickButton;
-    QPushButton *pauseButton;
     QPushButton *mouseLongPressButton;
+    QPushButton *doubleClickButton;
     QPushButton *allOverAgainButton;
     QPushButton *moveMouseButton;
+    QPushButton *pauseButton;
+    QPushButton *dragNDropButton;
     QPushButton *removeEventButton;
     QWidget *widget;
     QPushButton *addEventButton;
@@ -72,6 +73,7 @@ public:
     QPushButton *pushButton;
     QLabel *label;
     QStatusBar *statusbar;
+    QButtonGroup *buttonGroup;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -105,65 +107,75 @@ public:
         tableWidget->verticalHeader()->setVisible(false);
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(40, 50, 376, 141));
+        gridLayoutWidget->setGeometry(QRect(40, 50, 394, 141));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         keyPressButton = new QPushButton(gridLayoutWidget);
+        buttonGroup = new QButtonGroup(MainWindow);
+        buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
+        buttonGroup->addButton(keyPressButton);
         keyPressButton->setObjectName(QString::fromUtf8("keyPressButton"));
         keyPressButton->setCheckable(true);
         keyPressButton->setAutoExclusive(true);
 
         gridLayout->addWidget(keyPressButton, 0, 2, 1, 1);
 
-        dragNDropButton = new QPushButton(gridLayoutWidget);
-        dragNDropButton->setObjectName(QString::fromUtf8("dragNDropButton"));
-        dragNDropButton->setCheckable(true);
-        dragNDropButton->setAutoExclusive(true);
-
-        gridLayout->addWidget(dragNDropButton, 0, 1, 1, 1);
-
-        doubleClickButton = new QPushButton(gridLayoutWidget);
-        doubleClickButton->setObjectName(QString::fromUtf8("doubleClickButton"));
-        doubleClickButton->setCheckable(true);
-        doubleClickButton->setAutoExclusive(true);
-
-        gridLayout->addWidget(doubleClickButton, 1, 0, 1, 1);
-
         clickButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(clickButton);
         clickButton->setObjectName(QString::fromUtf8("clickButton"));
         clickButton->setCheckable(true);
         clickButton->setAutoExclusive(true);
 
         gridLayout->addWidget(clickButton, 0, 0, 1, 1);
 
-        pauseButton = new QPushButton(gridLayoutWidget);
-        pauseButton->setObjectName(QString::fromUtf8("pauseButton"));
-        pauseButton->setCheckable(true);
-        pauseButton->setAutoExclusive(true);
-
-        gridLayout->addWidget(pauseButton, 1, 2, 1, 1);
-
         mouseLongPressButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(mouseLongPressButton);
         mouseLongPressButton->setObjectName(QString::fromUtf8("mouseLongPressButton"));
         mouseLongPressButton->setCheckable(true);
         mouseLongPressButton->setAutoExclusive(true);
 
         gridLayout->addWidget(mouseLongPressButton, 1, 1, 1, 1);
 
+        doubleClickButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(doubleClickButton);
+        doubleClickButton->setObjectName(QString::fromUtf8("doubleClickButton"));
+        doubleClickButton->setCheckable(true);
+        doubleClickButton->setAutoExclusive(true);
+
+        gridLayout->addWidget(doubleClickButton, 0, 1, 1, 1);
+
         allOverAgainButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(allOverAgainButton);
         allOverAgainButton->setObjectName(QString::fromUtf8("allOverAgainButton"));
         allOverAgainButton->setCheckable(true);
         allOverAgainButton->setAutoExclusive(true);
 
-        gridLayout->addWidget(allOverAgainButton, 2, 0, 1, 1);
+        gridLayout->addWidget(allOverAgainButton, 2, 2, 1, 1);
 
         moveMouseButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(moveMouseButton);
         moveMouseButton->setObjectName(QString::fromUtf8("moveMouseButton"));
         moveMouseButton->setCheckable(true);
         moveMouseButton->setAutoExclusive(true);
 
-        gridLayout->addWidget(moveMouseButton, 2, 1, 1, 1);
+        gridLayout->addWidget(moveMouseButton, 1, 0, 1, 1);
+
+        pauseButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(pauseButton);
+        pauseButton->setObjectName(QString::fromUtf8("pauseButton"));
+        pauseButton->setCheckable(true);
+        pauseButton->setAutoExclusive(true);
+
+        gridLayout->addWidget(pauseButton, 2, 1, 1, 1);
+
+        dragNDropButton = new QPushButton(gridLayoutWidget);
+        buttonGroup->addButton(dragNDropButton);
+        dragNDropButton->setObjectName(QString::fromUtf8("dragNDropButton"));
+        dragNDropButton->setCheckable(true);
+        dragNDropButton->setAutoExclusive(true);
+
+        gridLayout->addWidget(dragNDropButton, 1, 2, 1, 1);
 
         removeEventButton = new QPushButton(centralwidget);
         removeEventButton->setObjectName(QString::fromUtf8("removeEventButton"));
@@ -187,11 +199,15 @@ public:
 
         leftSideButton = new QPushButton(sideButtonWidget);
         leftSideButton->setObjectName(QString::fromUtf8("leftSideButton"));
+        leftSideButton->setCheckable(true);
+        leftSideButton->setAutoExclusive(true);
 
         sideLayout->addWidget(leftSideButton);
 
         rightSideButton = new QPushButton(sideButtonWidget);
         rightSideButton->setObjectName(QString::fromUtf8("rightSideButton"));
+        rightSideButton->setCheckable(true);
+        rightSideButton->setAutoExclusive(true);
 
         sideLayout->addWidget(rightSideButton);
 
@@ -207,6 +223,7 @@ public:
 
         iterLineEdit = new QLineEdit(iterWidget);
         iterLineEdit->setObjectName(QString::fromUtf8("iterLineEdit"));
+        iterLineEdit->setClearButtonEnabled(false);
 
         iterLayout->addWidget(iterLineEdit);
 
@@ -306,13 +323,13 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         runButton->setText(QCoreApplication::translate("MainWindow", "Run", nullptr));
         keyPressButton->setText(QCoreApplication::translate("MainWindow", "Key Press", nullptr));
-        dragNDropButton->setText(QCoreApplication::translate("MainWindow", "Drag n Drop", nullptr));
-        doubleClickButton->setText(QCoreApplication::translate("MainWindow", "Double Click", nullptr));
         clickButton->setText(QCoreApplication::translate("MainWindow", "Click", nullptr));
-        pauseButton->setText(QCoreApplication::translate("MainWindow", "Pause", nullptr));
         mouseLongPressButton->setText(QCoreApplication::translate("MainWindow", "Mouse long press", nullptr));
+        doubleClickButton->setText(QCoreApplication::translate("MainWindow", "Double Click", nullptr));
         allOverAgainButton->setText(QCoreApplication::translate("MainWindow", "All over again", nullptr));
         moveMouseButton->setText(QCoreApplication::translate("MainWindow", "Move mouse", nullptr));
+        pauseButton->setText(QCoreApplication::translate("MainWindow", "Pause", nullptr));
+        dragNDropButton->setText(QCoreApplication::translate("MainWindow", "Drag n Drop", nullptr));
         removeEventButton->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         addEventButton->setText(QCoreApplication::translate("MainWindow", "Add event", nullptr));
         mouseSideLabel->setText(QCoreApplication::translate("MainWindow", "Side", nullptr));
@@ -338,4 +355,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MIAINWINDOWCEYYUN_H
+#endif // MIAINWINDOWCTBOCW_H

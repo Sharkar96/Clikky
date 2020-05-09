@@ -7,11 +7,13 @@
 
 
 #include "ModelMain.h"
+#include "Click.h"
 
+enum Events{click=1, doubleClick, keyPress, moveMouse, mouseLongPress,dragNDrop,pause,allOverAgain};
 class ControllerMain {
 public:
     explicit ControllerMain(ModelMain* m) : model{m} {};
-
+    void createEvent(int eventCode, bool s, bool iter, int iterC, int d);
 private:
 
     ModelMain* model;

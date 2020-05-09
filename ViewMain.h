@@ -12,6 +12,7 @@
 #include "ModelMain.h"
 #include "ControllerMain.h"
 
+const int FIRST_CELL=0;
 class ViewMain : public QMainWindow, public Observer {
 Q_OBJECT
 public:
@@ -21,9 +22,15 @@ public:
     void update() override;
 
     void hideWidgets();
-    void addToTable(const std::string& event);
+    void addToTable(std::string&& event);
     void clearTable();
+
+    bool getSide();
+    bool getRepeatCheck();
+    int getIterNumber();
+    int getDuration();
 private slots:
+
     void onClickButton(bool checked);
     void onDragNDropButton(bool checked);
     void onDoubleClickButton(bool checked);
@@ -35,7 +42,8 @@ private slots:
     void onAddEventButton();
 
 private:
-    int lastColumnOccupied{1};
+    void setIds();
+    int lastColumnOccupied{FIRST_CELL};
     ControllerMain* controller;
     ModelMain* model;
     Ui_MainWindow* ui;
