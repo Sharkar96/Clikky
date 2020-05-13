@@ -17,7 +17,7 @@ public:
     ~Click() override;
 
     void run() override;
-    std::string&& getTableMode() override;
+    const std::string& getTableMode() override;
 private:
 
     MouseButtonUp buttonUp;

@@ -16,6 +16,6 @@ MouseButtonDown::MouseButtonDown(MouseButton buttonSide, unsigned int d) : butto
 
 }
 
-std::string&& MouseButtonDown::getTableMode() {
-    return std::move(eventName+" x"+std::to_string(duration)+"s"+" >");
+const std::string& MouseButtonDown::getTableMode() {
+    return eventName+" x"+std::to_string(duration)+"s"+" >";
 }

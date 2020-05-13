@@ -11,6 +11,7 @@
 #include "Observer.h"
 #include "ModelMain.h"
 #include "ControllerMain.h"
+#include <QMessageBox>
 
 const int FIRST_CELL=0;
 class ViewMain : public QMainWindow, public Observer {
@@ -22,7 +23,7 @@ public:
     void update() override;
 
     void hideWidgets();
-    void addToTable(std::string&& event);
+    void addToTable(const std::string& event);
     void clearTable();
 
     bool getSide();

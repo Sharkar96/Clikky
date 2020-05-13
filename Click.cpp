@@ -17,11 +17,11 @@ void Click::run() {
 }
 
 Click::Click(MouseButton buttonSide, unsigned int iterCount) : buttonUp{buttonSide}, buttonDown{buttonSide}, pause{},
-                                                               Event("Click",0, iterCount) {}
+                                                               Event("Click", 0, iterCount) {}
 
-std::string&& Click::getTableMode() {
-    std::string tableMode=eventName+" x"+std::to_string(iterCount)+" >";
-    return std::move(tableMode);
+const std::string& Click::getTableMode() {
+    std::cout << eventName + " x" + std::to_string(iterCount) + " >";
+    return eventName + " x" + std::to_string(iterCount) + " >";
 }
 
 

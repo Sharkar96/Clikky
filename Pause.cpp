@@ -8,8 +8,8 @@ Pause::Pause(unsigned int d) : Event{"Pause", CONVERSION_S_to_mS * d} {}
 
 Pause::~Pause() {}
 
-std::string&& Pause::getTableMode() {
-    return std::move(eventName + " x" + std::to_string(duration) + "s" + " >");
+const std::string& Pause::getTableMode() {
+    return eventName + " x" + std::to_string(duration) + "s" + " >";
 }
 
 void Pause::run() {

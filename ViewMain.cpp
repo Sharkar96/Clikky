@@ -2,6 +2,7 @@
 // Created by Andrea Righetti on 02/05/2020.
 //
 
+
 #include "ViewMain.h"
 
 ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : controller{c}, model{m},
@@ -27,7 +28,8 @@ ViewMain::~ViewMain() {
 void ViewMain::update() {
     clearTable();
     for(auto& i : model->getEvents()){
-        addToTable(i->getTableMode());
+        std::string e = i->getTableMode();
+        addToTable(e);
     }
 }
 
@@ -47,7 +49,14 @@ void ViewMain::hideWidgets() {
 }
 
 void ViewMain::onAddEventButton() {
-    controller->createEvent(ui->buttonGroup->checkedId(), getSide(), getRepeatCheck(), getIterNumber(), getDuration());
+    try {
+        controller->createEvent(ui->buttonGroup->checkedId(), getSide(), getIterNumber(), getDuration());
+    }
+    catch(std::out_of_range& e) {
+        QMessageBox msgbox;
+        msgbox.setText(e.what());
+        msgbox.exec();
+    }
 }
 
 void ViewMain::onDoubleClickButton(bool checked) {
@@ -96,11 +105,12 @@ void ViewMain::clearTable() {
     ui->tableWidget->clear();
     lastColumnOccupied = FIRST_CELL;
 }
+
 //change all the rvalues back to const string references
-void ViewMain::addToTable( std::string&& event) {
-    QTableWidgetItem*item=new QTableWidgetItem(QString::fromStdString(event));
+void ViewMain::addToTable(const std::string& event) {
+    QTableWidgetItem* item = new QTableWidgetItem(QString::fromStdString(event));
     item->setFlags(item->flags() ^ Qt::ItemIsEditable);
-    ui->tableWidget->setItem(0, lastColumnOccupied,item);
+    ui->tableWidget->setItem(0, lastColumnOccupied, item);
     lastColumnOccupied++;
 }
 
